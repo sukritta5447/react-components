@@ -1,17 +1,10 @@
 import "./App.css";
-import PropTypes from "prop-types";
 
-function Button({children, onClick}) {
+function Button() {
   return (
-    <button className="add-to-cart-button-secondary" onClick={onClick}>
-      {children}
-    </button>
+    <button className="add-to-cart-button-secondary">Add to Cart</button>
   );
 }
-Button.propTypes = {
-  children: PropTypes.node,
-  onClick: PropTypes.func,
-};
 
 function Header() {
   return (
@@ -71,48 +64,41 @@ function Main() {
   );
 }
 
-function ProductCard({ image, alt, title, price }) {
-  return (
-    <div className="product-card">
-      <img src={image} alt={alt} />
-      <h3>{title}</h3>
-      <p className="product-price">{price}</p>
-      <Button>Add to Cart</Button>
-    </div>
-  );
-}
-
-ProductCard.propTypes = {
-  image: PropTypes.string.isRequired,
-  alt: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-};
-
 function ProductSection() {
   return (
     <section className="product-section">
         <div className="product-section-container">
           <h2 className="product-featured-heading">Featured Products</h2>
           <div className="product-card-list">
-            <ProductCard
-            image="https://placehold.co/300x300"
-            alt="The Lorem Ipsum for photos."
-            title="Premium Bluetooth Headphones"
-            price="2,400 Baht"
-            />
-            <ProductCard
-            image="https://placehold.co/300x300"
-            alt="The Lorem Ipsum for photos."
-            title="Classic Leather Watch"
-            price="4,000 Baht"
-          />
-          <ProductCard
-            image="https://placehold.co/300x300"
-            alt="The Lorem Ipsum for photos."
-            title="Organic Green Tea"
-            price="79.99 Baht"
-          />
+            <div className="product-card">
+              <img
+                src="https://placehold.co/300x300"
+                alt="The Lorem Ipsum for photos."
+              />
+              <h3>Premium Bluetooth Headphones</h3>
+              <p className="product-price">2,400 Baht</p>
+              <Button />
+            </div>
+            <div className="product-card">
+              <img
+                src="https://placehold.co/300x300"
+                alt="The Lorem Ipsum for photos."
+              />
+              <h3>Classic Leather Watch</h3>
+              <p className="product-price">4,000 Baht</p>
+              {/* Todo 5: (จุดที่ 2) */}
+              <Button />
+            </div>
+            <div className="product-card">
+              <img
+                src="https://placehold.co/300x300"
+                alt="The Lorem Ipsum for photos."
+              />
+              <h3>Organic Green Tea</h3>
+              <p className="product-price">79.99 Baht</p>
+              {/* Todo 5: (จุดที่ 3) */}
+              <Button />
+            </div>
           </div>
         </div>
       </section>
